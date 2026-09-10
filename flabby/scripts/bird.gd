@@ -7,6 +7,7 @@ class_name Bird
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
+var should_continue = true
 var is_started = false
 var max_speed = 400 
 func _ready() -> void:
@@ -14,7 +15,7 @@ func _ready() -> void:
 	animation_player.play("idle")
 
 func _physics_process(delta: float) -> void:
-	if Input.is_action_just_pressed("jump"):
+	if Input.is_action_just_pressed("jump") && should_continue:
 		if !is_started :
 			is_started = true
 			animation_player.play("flab_wing")
@@ -38,3 +39,8 @@ func rotate_bird():
 		rotation -= rotation_speed * deg_to_rad(1)
 	pass
 	
+func stop() :
+	animation_player.stop()
+	gravity = 0 
+	velocity = Vector2.ZERO
+	should_continue = false

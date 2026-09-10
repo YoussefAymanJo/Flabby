@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bwf5i0qyei8n0" path="res://assets/background-day.png" id="1_am3uj"]
 [ext_resource type="PackedScene" uid="uid://besgicwl1rxf1" path="res://scences/bird.tscn" id="1_i2nf4"]
 [ext_resource type="PackedScene" uid="uid://dpqeocft8axl3" path="res://scences/ground.tscn" id="3_8edsk"]
+[ext_resource type="PackedScene" uid="uid://c3ir14li3xlrg" path="res://scences/pipespawner.tscn" id="4_3if0j"]
 
 [node name="Main" type="Node" unique_id=1915996631]
 
@@ -15,3 +16,5 @@ texture = ExtResource("1_am3uj")
 
 [node name="Ground" parent="." unique_id=445455408 instance=ExtResource("3_8edsk")]
 position = Vector2(24, 201)
+
+[node name="pipespawner" parent="." unique_id=191782678 instance=ExtResource("4_3if0j")]
