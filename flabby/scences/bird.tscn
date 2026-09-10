@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://besgicwl1rxf1"]
+
+[ext_resource type="Texture2D" uid="uid://bjn7mqbj3rrm" path="res://assets/yellowbird-midflap.png" id="1_xhh7x"]
+[ext_resource type="Script" uid="uid://c3tcrlhjcst5o" path="res://scripts/bird.gd" id="1_xwnmf"]
+[ext_resource type="Texture2D" uid="uid://bxetx2w3gs4gr" path="res://assets/yellowbird-downflap.png" id="3_hppr7"]
+[ext_resource type="Texture2D" uid="uid://cfmtmqos4atil" path="res://assets/yellowbird-upflap.png" id="4_wthfc"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xwnmf"]
+radius = 12.0
+height = 34.0
+
+[sub_resource type="Animation" id="Animation_xwnmf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_xhh7x")]
+}
+
+[sub_resource type="Animation" id="Animation_ymxbj"]
+resource_name = "flab_wing"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_hppr7"), ExtResource("1_xhh7x"), ExtResource("4_wthfc")]
+}
+
+[sub_resource type="Animation" id="Animation_dhein"]
+resource_name = "idle"
+length = 0.76666665
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -10)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hppr7"]
+_data = {
+&"RESET": SubResource("Animation_xwnmf"),
+&"flab_wing": SubResource("Animation_ymxbj"),
+&"idle": SubResource("Animation_dhein")
+}
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=949944843]
+script = ExtResource("1_xwnmf")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1162767486]
+texture_filter = 1
+texture = ExtResource("1_xhh7x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=953210268]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_xwnmf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=458349712]
+libraries/ = SubResource("AnimationLibrary_hppr7")

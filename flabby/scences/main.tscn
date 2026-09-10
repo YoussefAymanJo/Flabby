@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bq2xoer3pgrww"]
+
+[ext_resource type="Texture2D" uid="uid://bwf5i0qyei8n0" path="res://assets/background-day.png" id="1_am3uj"]
+[ext_resource type="PackedScene" uid="uid://besgicwl1rxf1" path="res://scences/bird.tscn" id="1_i2nf4"]
+[ext_resource type="PackedScene" uid="uid://dpqeocft8axl3" path="res://scences/ground.tscn" id="3_8edsk"]
+
+[node name="Main" type="Node" unique_id=1915996631]
+
+[node name="background" type="Sprite2D" parent="." unique_id=1667266770]
+texture = ExtResource("1_am3uj")
+
+[node name="Bird" parent="." unique_id=949944843 instance=ExtResource("1_i2nf4")]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=852908243]
+
+[node name="Ground" parent="." unique_id=445455408 instance=ExtResource("3_8edsk")]
+position = Vector2(24, 201)
