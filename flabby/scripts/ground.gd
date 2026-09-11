@@ -11,7 +11,7 @@ signal flabby_died
 
 func _ready() -> void:
 	sprite_2d2.global_position.x = sprite_2d1.global_position.x + sprite_2d1.texture.get_width()
-	pass
+	
 
 func _process(delta: float) -> void:
 	sprite_2d1.global_position.x += speed * delta
@@ -21,7 +21,7 @@ func _process(delta: float) -> void:
 		sprite_2d1.global_position.x = sprite_2d2.global_position.x + sprite_2d2.texture.get_width()
 	if sprite_2d2.global_position.x < -sprite_2d2.texture.get_width() :
 		sprite_2d2.global_position.x = sprite_2d1.global_position.x + sprite_2d1.texture.get_width()
-	pass	
+		
 	 
 
 
@@ -29,7 +29,6 @@ func _on_ground_1_body_entered(body: Node2D) -> void:
 	flabby_died.emit()
 	stop()
 	(body as Bird).stop()
-	pass # Replace with function body.
 func stop():
 	speed = 0
-	pass
+	

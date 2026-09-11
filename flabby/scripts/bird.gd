@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 class_name Bird
+signal game_started 
 @export var gravity = 900
 @export var jump_force = -300
 @export var rotation_speed = 2
@@ -17,6 +18,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") && should_continue:
 		if !is_started :
+			game_started.emit()
 			is_started = true
 			animation_player.play("flab_wing")
 		jump()
@@ -26,19 +28,20 @@ func _physics_process(delta: float) -> void:
 	velocity.y = min(velocity.y,max_speed)
 	move_and_collide( velocity * delta)
 	rotate_bird()
-	pass
+	
 		
 func jump() :
 	velocity.y = jump_force
 	rotation = deg_to_rad(-30)
-	pass
+	
 func rotate_bird():
 	if velocity.y > 0 && rad_to_deg(rotation) <90 :
 		rotation += rotation_speed * deg_to_rad(1)
 	elif velocity.y<  0 && rad_to_deg(rotation) >-30 :
 		rotation -= rotation_speed * deg_to_rad(1)
-	pass
 	
+func kill():
+	should_continue = false	
 func stop() :
 	animation_player.stop()
 	gravity = 0 

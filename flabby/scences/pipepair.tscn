@@ -1,48 +1,51 @@
 [gd_scene format=3 uid="uid://pu3wkfu0fp6l"]
 
-[ext_resource type="Script" uid="uid://dosvbh6dbpigu" path="res://scripts/pipes.gd" id="1_0cd5f"]
-[ext_resource type="Texture2D" uid="uid://drx10uoxjpba5" path="res://assets/pipe-green.png" id="1_7ogwf"]
+[ext_resource type="Script" uid="uid://dosvbh6dbpigu" path="res://scripts/pipes.gd" id="1_yadrg"]
+[ext_resource type="Texture2D" uid="uid://drx10uoxjpba5" path="res://assets/pipe-green.png" id="2_xpmnb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ogwf"]
-size = Vector2(52, 250)
+size = Vector2(49, 248)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0cd5f"]
-size = Vector2(52, 250)
+size = Vector2(48, 248)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_54nnf"]
-size = Vector2(6, 125)
+size = Vector2(4, 226)
 
-[node name="pipes" type="Node2D" unique_id=745311931]
-script = ExtResource("1_0cd5f")
+[node name="Pipepair" type="Node2D" unique_id=745311931]
+script = ExtResource("1_yadrg")
 
 [node name="Toppipe" type="Area2D" parent="." unique_id=869098495]
 position = Vector2(0, -300)
 rotation = 3.1415927
 
 [node name="Sprite2D" type="Sprite2D" parent="Toppipe" unique_id=619964114]
-texture = ExtResource("1_7ogwf")
+texture = ExtResource("2_xpmnb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Toppipe" unique_id=1561318081]
-position = Vector2(-1.9947991e-05, -115)
+position = Vector2(0.4999801, -114)
 shape = SubResource("RectangleShape2D_7ogwf")
 
 [node name="bottompipe" type="Area2D" parent="." unique_id=265389955]
 position = Vector2(0, 300)
 
 [node name="Sprite2D" type="Sprite2D" parent="bottompipe" unique_id=1600533481]
-texture = ExtResource("1_7ogwf")
+texture = ExtResource("2_xpmnb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bottompipe" unique_id=1609562338]
-position = Vector2(0, -115)
+position = Vector2(0, -114)
 shape = SubResource("RectangleShape2D_0cd5f")
 
 [node name="scored" type="Area2D" parent="." unique_id=726003008]
 position = Vector2(40, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="scored" unique_id=1268830955]
-position = Vector2(-7, -0.5)
+position = Vector2(-10, 0)
 shape = SubResource("RectangleShape2D_54nnf")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=519441138]
 
 [connection signal="body_entered" from="Toppipe" to="." method="on_body_entered"]
 [connection signal="body_entered" from="bottompipe" to="." method="on_body_entered"]
 [connection signal="body_entered" from="scored" to="." method="on_point_scored"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

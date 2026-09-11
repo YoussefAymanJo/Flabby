@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c4ug3wsuarehe" path="res://scripts/pipespawner.gd" id="1_paw6f"]
 
-[node name="pipespawner" type="Node" unique_id=191782678]
+[node name="PipeSpawner" type="Node" unique_id=191782678]
 script = ExtResource("1_paw6f")
 
 [node name="Timer" type="Timer" parent="." unique_id=512776876]
