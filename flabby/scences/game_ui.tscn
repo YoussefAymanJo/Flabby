@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://b4lfxf7sjsvhu"]
+
+[ext_resource type="Script" uid="uid://c3yc6lw5xj27l" path="res://scripts/game_ui.gd" id="1_84g7y"]
+[ext_resource type="Texture2D" uid="uid://bwf5i0qyei8n0" path="res://assets/background-day.png" id="2_thb3a"]
+[ext_resource type="FontFile" uid="uid://cu4lf4od2owng" path="res://assets/font/FlappyBird.ttf" id="3_eqrx1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_thb3a"]
+bg_color = Color(0.5485164, 0.46162742, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eqrx1"]
+bg_color = Color(0.54901963, 0.4627451, 0, 1)
+
+[node name="Game_UI" type="Control" unique_id=1569868199]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_84g7y")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=133830605]
+modulate = Color(0.35006392, 0.35006395, 0.35006392, 1)
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_thb3a")
+
+[node name="Label" type="Label" parent="." unique_id=1425943991]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -98.5
+offset_top = 100.0
+offset_right = 98.5
+offset_bottom = 179.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 0.84313726, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/outline_size = 2
+theme_override_constants/shadow_outline_size = 1
+theme_override_fonts/font = ExtResource("3_eqrx1")
+theme_override_font_sizes/font_size = 100
+text = "Flabby"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=636628169]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Start" type="Button" parent="VBoxContainer" unique_id=1297934268]
+texture_filter = 1
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_eqrx1")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_thb3a")
+text = "Start"
+
+[node name="Exit" type="Button" parent="VBoxContainer" unique_id=1705691453]
+texture_filter = 1
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_eqrx1")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_eqrx1")
+text = "Exit"
+
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]

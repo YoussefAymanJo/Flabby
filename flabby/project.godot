@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Flabby"
-run/main_scene="uid://bq2xoer3pgrww"
+run/main_scene="uid://b4lfxf7sjsvhu"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 

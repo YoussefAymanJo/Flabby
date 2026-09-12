@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://c3tcrlhjcst5o" path="res://scripts/bird.gd" id="1_xwnmf"]
 [ext_resource type="Texture2D" uid="uid://bxetx2w3gs4gr" path="res://assets/yellowbird-downflap.png" id="3_hppr7"]
 [ext_resource type="Texture2D" uid="uid://cfmtmqos4atil" path="res://assets/yellowbird-upflap.png" id="4_wthfc"]
+[ext_resource type="AudioStream" uid="uid://c855a6uercaid" path="res://assets/sfx/flappy-bird-sound-effect-meme-mp3.mp3" id="5_wthfc"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xwnmf"]
 radius = 12.0
@@ -90,3 +91,7 @@ shape = SubResource("CapsuleShape2D_xwnmf")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=458349712]
 libraries/ = SubResource("AnimationLibrary_hppr7")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=929021364]
+stream = ExtResource("5_wthfc")
+bus = &"flying"

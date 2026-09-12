@@ -32,7 +32,5 @@ func stop():
 	spawn_time.stop()
 	for pipe in get_children().filter(func (child) : return child is pipe_pair):
 		(pipe as pipe_pair).speed = 0
-		
-	
 func on_point_scored():
 	point_socred.emit()

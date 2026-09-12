@@ -1,7 +1,54 @@
 [gd_scene format=3 uid="uid://dlhswfrbav81"]
 
+[ext_resource type="Script" uid="uid://8xhiboebswuc" path="res://scripts/fade.gd" id="1_v47ep"]
+
+[sub_resource type="Animation" id="Animation_j0q3i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_5qlju"]
+resource_name = "fade"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_riioe"]
+_data = {
+&"RESET": SubResource("Animation_j0q3i"),
+&"fade": SubResource("Animation_5qlju")
+}
+
 [node name="Fade" type="Node" unique_id=2075776493]
+script = ExtResource("1_v47ep")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=2083943065]
-offset_right = 288.0
-offset_bottom = 512.0
+offset_left = -144.0
+offset_top = -256.0
+offset_right = 144.0
+offset_bottom = 256.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1453404969]
+libraries/ = SubResource("AnimationLibrary_riioe")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

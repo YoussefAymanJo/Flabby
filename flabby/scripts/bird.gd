@@ -7,6 +7,7 @@ signal game_started
 @export var rotation_speed = 2
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 var should_continue = true
 var is_started = false
@@ -21,6 +22,7 @@ func _physics_process(delta: float) -> void:
 			game_started.emit()
 			is_started = true
 			animation_player.play("flab_wing")
+			audio_stream_player_2d.play()
 		jump()
 	if !is_started :
 		return
@@ -31,6 +33,7 @@ func _physics_process(delta: float) -> void:
 	
 		
 func jump() :
+	audio_stream_player_2d.play()
 	velocity.y = jump_force
 	rotation = deg_to_rad(-30)
 	
