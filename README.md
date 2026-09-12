@@ -1,7 +1,7 @@
 # Flabby
 
 ## Description
-2d online game for the famous Flappy Bird game, where you try to collect a large number of points by staying alive and flying through obstacles.
+2d online game for the famous Flappy Bird game, where you try to collect a large number of points by staying alive and flying through obstacles.I want make this game ,it was simple one ,but a my my second game in godot with great develop,i followed tutorial in some parts and used free assets ,and seached for SFX and music to give the game entertaining mode and created game UI,as i mentioned it was my second game in godot.
 ## Game link 
 
 (https://youssef2008111.itch.io/flabby)
