@@ -24,7 +24,13 @@ func _ready() -> void:
 	points = Statues.point
 	lives = Statues.lives
 	best_score = Statues.best_score
-	#ui.update_points(points)
+func _process(delta: float) -> void:
+	ui.update_points(points)
+	ui.showing_best_score()
+	Statues.point = points
+	Statues.lives = lives
+	Statues.best_score = best_score
+	ui.showing_lives_left()
 func on_game_started():
 	pipespawner.start_spawing_pipes()
 
@@ -54,3 +60,6 @@ func on_point_scored():
 		best_score = points
 	score.play()
 	ui.update_points(points)
+func increase_level():
+
+	pass

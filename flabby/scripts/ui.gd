@@ -3,9 +3,14 @@ extends CanvasLayer
 class_name UI
 @onready var gameoverbox: VBoxContainer = $MarginContainer/gameoverbox
 @onready var pointslabel: Label = $MarginContainer/pointslabel
+@onready var best_score_label: Label = $MarginContainer/gameoverbox/Panel/Best_score
+@onready var health_1: CharacterBody2D = $MarginContainer/Health1
+@onready var health_2: CharacterBody2D = $MarginContainer/Health2
+@onready var health_3: CharacterBody2D = $MarginContainer/Health3
 
 func _ready() -> void:
 	pointslabel.text	 = "%d"  % 0
+	#showing_best_score()
 func update_points(points : int) :
 	pointslabel.text = "%d" % points
 func on_game_over():
@@ -19,9 +24,16 @@ func _on_restart_pressed() -> void:
 	Statues.point = 0
 	Statues.lives = 3
 	get_tree().reload_current_scene()
-func showing_best_score(best_score : int) :
+func showing_best_score() :
+	best_score_label.text = "Best Score : %d" % Statues.best_score	
 	pass
-func showing_lives_left(lives : int) :
+func showing_lives_left() :
+	if Statues.lives == 2 :
+		health_3.visible = false
+	elif Statues.lives == 1 :
+		health_2.visible = false
+	elif Statues.lives == 0 :
+		health_1.visible = false
 	pass 
 func level_increased(level : int) : 
 	pass 
