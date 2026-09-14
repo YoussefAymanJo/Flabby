@@ -31,4 +31,3 @@ func _on_ground_1_body_entered(body: Node2D) -> void:
 	(body as Bird).stop()
 func stop():
 	speed = 0
-	

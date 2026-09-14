@@ -15,6 +15,13 @@ func on_game_over():
 func _on_button_pressed() -> void:
 	get_tree().quit()
 
-
 func _on_restart_pressed() -> void:
+	Statues.point = 0
+	Statues.lives = 3
 	get_tree().reload_current_scene()
+func showing_best_score(best_score : int) :
+	pass
+func showing_lives_left(lives : int) :
+	pass 
+func level_increased(level : int) : 
+	pass 
