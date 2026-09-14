@@ -24,6 +24,7 @@ func _ready() -> void:
 	points = Statues.point
 	lives = Statues.lives
 	best_score = Statues.best_score
+	call_deferred("increase_level")
 func _process(delta: float) -> void:
 	ui.update_points(points)
 	ui.showing_best_score()
@@ -58,8 +59,40 @@ func on_point_scored():
 	points += 1
 	if points > best_score:
 		best_score = points
+	Statues.point = points
 	score.play()
 	ui.update_points(points)
+	increase_level()
 func increase_level():
-
+	if Statues.point >=1 &&  Statues.point <=25 : 
+		pipespawner.pipe_speed = -160
+		pipespawner.get_node("Timer").wait_time = 2
+		Statues.level = 1
+		print("yes")
+		ui.level_increased()
+	elif Statues.point >25 &&  Statues.point <=50 : 
+		pipespawner.pipe_speed = -175
+		pipespawner.get_node("Timer").wait_time = 1.8
+		Statues.level = 2
+		ui.level_increased()
+	elif Statues.point >50 &&  Statues.point <=80: 
+		pipespawner.pipe_speed = -185
+		pipespawner.get_node("Timer").wait_time = 1.8
+		Statues.level = 3
+		ui.level_increased()
+	elif Statues.point >80 &&  Statues.point <=115 : 
+		pipespawner.pipe_speed = -190
+		pipespawner.get_node("Timer").wait_time = 1.5
+		Statues.level = 4
+		ui.level_increased()
+	elif Statues.point >115 &&  Statues.point <=160 : 
+		pipespawner.pipe_speed = -200
+		pipespawner.get_node("Timer").wait_time = 1.25
+		Statues.level = 5
+		ui.level_increased()
+	elif Statues.point >160  : 
+		pipespawner.pipe_speed = -250
+		pipespawner.get_node("Timer").wait_time = 1
+		Statues.level = 6
+		ui.level_increased()
 	pass

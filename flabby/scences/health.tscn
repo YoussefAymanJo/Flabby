@@ -40,4 +40,4 @@ texture_filter = 1
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_wkw44")
 autoplay = "default"
-frame_progress = 0.051548064
+frame_progress = 0.4672655
