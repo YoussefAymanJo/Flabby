@@ -64,33 +64,33 @@ func on_point_scored():
 	ui.update_points(points)
 	increase_level()
 func increase_level():
-	if Statues.point >=1 &&  Statues.point <=25 : 
+	if Statues.point >=1 &&  Statues.point <=25 && Statues.level!=1 : 
 		pipespawner.pipe_speed = -160
 		pipespawner.get_node("Timer").wait_time = 2
 		Statues.level = 1
-		print("yes")
+		#print("yes")
 		ui.level_increased()
-	elif Statues.point >25 &&  Statues.point <=50 : 
+	elif Statues.point >25 &&  Statues.point <=50  && Statues.level!=2: 
 		pipespawner.pipe_speed = -175
 		pipespawner.get_node("Timer").wait_time = 1.8
 		Statues.level = 2
 		ui.level_increased()
-	elif Statues.point >50 &&  Statues.point <=80: 
+	elif Statues.point >50 &&  Statues.point <=80  && Statues.level!=3: 
 		pipespawner.pipe_speed = -185
 		pipespawner.get_node("Timer").wait_time = 1.8
 		Statues.level = 3
 		ui.level_increased()
-	elif Statues.point >80 &&  Statues.point <=115 : 
+	elif Statues.point >80 &&  Statues.point <=115  && Statues.level!=4 : 
 		pipespawner.pipe_speed = -190
 		pipespawner.get_node("Timer").wait_time = 1.5
 		Statues.level = 4
 		ui.level_increased()
-	elif Statues.point >115 &&  Statues.point <=160 : 
+	elif Statues.point >115 &&  Statues.point <=160  && Statues.level!=5: 
 		pipespawner.pipe_speed = -200
 		pipespawner.get_node("Timer").wait_time = 1.25
 		Statues.level = 5
 		ui.level_increased()
-	elif Statues.point >160  : 
+	elif Statues.point >160  && Statues.level!=6 : 
 		pipespawner.pipe_speed = -250
 		pipespawner.get_node("Timer").wait_time = 1
 		Statues.level = 6
